@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.timehacks.list">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.timehacks.list.activities.MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.timehacks.list.activities.AddActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing"
+            android:parentActivityName="com.timehacks.list.activities.MainActivity"/>
+        <activity
+            android:name="com.timehacks.list.activities.SettingsActivity"
+            android:screenOrientation="portrait" />
+
+        <receiver
+            android:name="com.timehacks.list.broadcastReceivers.ReminderReceiver"
+            android:enabled="true"
+            android:exported="true" />
+        <receiver
+            android:name="com.timehacks.list.broadcastReceivers.BootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.timehacks.list.broadcastReceivers.MarkAsDoneReciever"
+            android:enabled="true"
+            android:exported="true" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="@string/authority"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider>
+
+        <receiver
+            android:name="com.timehacks.list.broadcastReceivers.WidgetReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@drawable/logo"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info" />
+        </receiver>
+
+        <service
+            android:name="com.timehacks.list.services.WidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
+
+    </application>
+
+</manifest>

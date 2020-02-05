@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.timehacks.list.activities.SettingsActivity">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?colorPrimary"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="@drawable/ic_keyboard_arrow_left_black_24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#fff"
+                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:text="@string/settings"
+                android:paddingStart="-50dp"
+                android:gravity="center" />
+        </android.support.v7.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/lbl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/label_style"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            android:text="@string/select_theme" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/theme_chooser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/lbl"
+            app:layout_constraintStart_toStartOf="@id/lbl"
+            app:layout_constraintEnd_toEndOf="@id/lbl"
+            app:layoutManager="GridLayoutManager"
+            app:spanCount="6"
+            tools:listitem="@layout/theme_chooser" />
+
+        <Button
+            android:id="@+id/btn_clr"
+            app:layout_constraintTop_toBottomOf="@id/theme_chooser"
+            android:text="@string/clear_data"
+            android:onClick="resetApp"
+            android:drawableStart="@drawable/ic_delete_black_24dp"
+            style="@style/settings_btn"/>
+
+        <Button
+            android:id="@+id/btn_rate"
+            app:layout_constraintTop_toBottomOf="@id/btn_clr"
+            android:drawableStart="@drawable/ic_star_border_black_24dp"
+            android:text="@string/rate_app"
+            style="@style/settings_btn"/>
+        <Button
+            android:id="@+id/btn_share"
+            app:layout_constraintTop_toBottomOf="@id/btn_rate"
+            android:drawableStart="@drawable/ic_share_black_24dp"
+            android:text="@string/share_app"
+            style="@style/settings_btn"/>
+        <Button
+            android:id="@+id/btn_more"
+            app:layout_constraintTop_toBottomOf="@id/btn_share"
+            android:drawableStart="@drawable/ic_apps_black_24dp"
+            android:text="@string/more_apps"
+            style="@style/settings_btn"/>
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:adUnitId="@string/AdmobBannerAdsID"
+            app:adSize="SMART_BANNER"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

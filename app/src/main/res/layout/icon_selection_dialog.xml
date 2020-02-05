@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="0dp"
+        android:background="#fff">
+
+        <TextView
+            android:id="@+id/lbl"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:gravity="center"
+            android:background="?colorPrimary"
+            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:padding="10dp"
+            android:textColor="#fff"
+            android:text="Select Icon" />
+
+
+        <ImageView
+            android:id="@+id/camera"
+            android:src="@drawable/ic_camera_black_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lbl"
+            app:layout_constraintEnd_toStartOf="@id/gallery"
+            app:layout_constraintBottom_toTopOf="@+id/icon_list"
+            style="@style/icon_chooser_options" />
+
+        <TextView
+            android:text="Camera"
+            app:layout_constraintTop_toBottomOf="@+id/camera"
+            app:layout_constraintStart_toStartOf="@id/camera"
+            app:layout_constraintEnd_toEndOf="@id/camera"
+            style="@style/icon_chooser_options_text"/>
+
+        <ImageView
+            android:id="@+id/gallery"
+            android:src="@drawable/ic_photo_library_black_24dp"
+            app:layout_constraintTop_toTopOf="@id/camera"
+            app:layout_constraintStart_toEndOf="@id/camera"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/camera"
+            style="@style/icon_chooser_options" />
+        <TextView
+            android:id="@+id/lbl_gallery"
+            android:text="Gallery"
+            app:layout_constraintTop_toBottomOf="@+id/gallery"
+            app:layout_constraintStart_toStartOf="@id/gallery"
+            app:layout_constraintEnd_toEndOf="@id/gallery"
+            style="@style/icon_chooser_options_text"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/icon_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/lbl_gallery"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:spanCount="6"
+            app:layoutManager="GridLayoutManager"
+            tools:listitem="@layout/icon_list_item" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="title"
+            type="String"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.timehacks.list.activities.MainActivity"
+        android:background="#fff">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?colorPrimary"
+                app:contentInsetStart="0dp"
+                app:contentInsetEnd="0dp">
+                <TextView
+                    android:id="@+id/title_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@{title}"
+                    android:paddingEnd="-50dp"
+                    android:gravity="center"
+                    android:textColor="#fff"
+                    android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
+            </android.support.v7.widget.Toolbar>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/main_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:layout_above="@id/adView"
+            app:layoutManager="LinearLayoutManager"
+            tools:listitem="@layout/list_item"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/adView"
+            android:layout_alignParentEnd="true"
+            android:clickable="true"
+            android:src="@drawable/ic_add_black_24dp"
+            android:tint="#fff"
+            app:fabSize="normal"
+            android:layout_margin="20dp"
+            android:focusable="true"
+            android:onClick="startAdd"/>
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            app:adSize="SMART_BANNER"
+            app:adUnitId="@string/AdmobBannerAdsID"/>
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="0dp"
+        android:background="#fff">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?colorPrimary"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="@drawable/ic_keyboard_arrow_left_black_24dp">
+
+            <TextView
+                android:id="@+id/down"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#fff"
+                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                android:text="Select Time"
+                android:paddingStart="-50dp"
+                android:gravity="center" />
+        </android.support.v7.widget.Toolbar>
+        <TextView
+            android:text="Select Date"
+            android:layout_marginTop="10dp"
+            style="@style/date_picker_lbl" />
+        <DatePicker
+            android:id="@+id/date_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner" />
+        <TextView
+            android:text="Select Time"
+            style="@style/date_picker_lbl" />
+        <TimePicker
+            android:id="@+id/time_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:timePickerMode="spinner"/>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/set_timer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="0.05"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_check_black_24dp"
+            app:fabSize="normal"
+            android:tint="#fff"
+            />
+
+    </LinearLayout>
+</layout>

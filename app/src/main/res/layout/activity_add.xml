@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="modeEdit"
+            type="Boolean"/>
+        <variable
+            name="reminderTime"
+            type="String"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="activities.AddActivity">
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/adView">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?colorPrimary"
+                    app:contentInsetStart="0dp"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:navigationIcon="@drawable/ic_keyboard_arrow_left_black_24dp">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColor="#fff"
+                        android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+                        android:text="Select Time"
+                        android:paddingStart="-50dp"
+                        android:gravity="center" />
+                </android.support.v7.widget.Toolbar>
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/edit_title_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolbar"
+                    android:hint="Enter Title"
+                    android:layout_margin="10dp"
+                    app:hintTextAppearance="@style/label_style">
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/edit_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/lbl_icon"
+                    android:layout_below="@id/edit_title_container"
+                    android:layout_toStartOf="@id/icon"
+                    android:text="Icon"
+                    style="@style/label_style"/>
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_alignTop="@id/lbl_icon"
+                    android:layout_alignBottom="@id/lbl_icon"
+                    android:layout_alignParentEnd="true"
+                    android:onClick="showIconsDialog"
+                    android:layout_below="@id/edit_title_container"/>
+
+                <RelativeLayout
+                    android:id="@+id/timer_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/edit_title_container"
+                    android:visibility="gone">
+                    <!--<TextView
+                        android:id="@+id/lbl_reminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Set Reminder" />-->
+                    <Switch
+                        android:id="@+id/switch_reminder"
+                        android:text="Set Reminder"
+                        style="@style/label_style"
+                        app:fontFamily="@font/latoregular"
+                        android:layout_margin="10dp"/>
+                    <Button
+                        android:id="@+id/reminder_date_time"
+                        android:layout_below="@id/switch_reminder"
+                        style="@style/label_style"
+                        android:focusable="true"
+                        android:background="?colorPrimary"
+                        android:textColor="#fff"
+                        android:text="@{reminderTime}"
+                        android:onClick="setTime"
+                        android:visibility="@{switchReminder.checked? View.VISIBLE:View.GONE}"/>
+                    <Switch
+                        android:id="@+id/home_screen_opt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_to_widget"
+                        style="@style/label_style"
+                        app:fontFamily="@font/latoregular"
+                        android:layout_margin="10dp"
+                        android:layout_below="@id/reminder_date_time"/>
+                </RelativeLayout>
+            </RelativeLayout>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                app:layout_anchorGravity="center|bottom"
+                app:layout_anchor="@id/reminder_picker"
+                app:fabSize="normal"
+                android:tint="#fff"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/ic_check_black_24dp"
+                android:onClick="addList" />
+
+            <include
+                android:id="@+id/reminder_picker"
+                layout="@layout/date_time_picker"
+                app:layout_anchor="@id/title" />
+            <include
+                android:id="@+id/icon_chooser"
+                layout="@layout/icon_selection_dialog"
+                app:layout_anchor="@id/title" />
+        </android.support.design.widget.CoordinatorLayout>
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            app:adSize="SMART_BANNER"
+            app:adUnitId="@string/AdmobBannerAdsID"/>
+    </RelativeLayout>
+</layout>

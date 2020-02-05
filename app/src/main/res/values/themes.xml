@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="GreenTheme" parent="AppTheme">
+        <item name="colorAccent">#74b617</item>
+        <item name="colorPrimary">#72ba0b</item>
+        <item name="colorPrimaryDark">#50810a</item>
+    </style>
+
+    <style name="RedTheme" parent="AppTheme">
+        <item name="colorAccent">@android:color/holo_red_dark</item>
+        <item name="colorPrimary">@android:color/holo_red_light</item>
+        <item name="colorPrimaryDark">@android:color/holo_red_dark</item>
+    </style>
+
+    <style name="PurpleTheme" parent="AppTheme">
+        <item name="colorPrimary">#673AB7</item>
+        <item name="colorPrimaryDark">#512DA8</item>
+        <item name="colorAccent">#E040FB</item>
+    </style>
+
+    <style name="TealTheme" parent="AppTheme">
+        <item name="colorPrimary">#4CAF50</item>
+        <item name="colorPrimaryDark">#388E3C</item>
+        <item name="colorAccent">#4CAF50</item>
+    </style>
+
+    <style name="GreenBlueTheme" parent="AppTheme">
+        <item name="colorPrimary">#3F51B5</item>
+        <item name="colorPrimaryDark">#303F9F</item>
+        <item name="colorAccent">#2840c7</item>
+    </style>
+
+    <style name="BlueGrayTheme" parent="AppTheme">
+        <item name="colorPrimary">#607D8B</item>
+        <item name="colorPrimaryDark">#455A64</item>
+        <item name="colorAccent">#607D8B</item>
+    </style>
+
+    <style name="PinkTheme" parent="AppTheme">
+        <item name="colorPrimary">#E91E63</item>
+        <item name="colorPrimaryDark">#C2185B</item>
+        <item name="colorAccent">#E91E63</item>
+    </style>
+
+    <style name="BrownTheme" parent="AppTheme">
+        <item name="colorPrimary">#795548</item>
+        <item name="colorPrimaryDark">#5D4037</item>
+        <item name="colorAccent">#795548</item>
+    </style>
+
+    <style name="DarkBlueTheme" parent="AppTheme">
+        <item name="colorPrimary">#164a8e</item>
+        <item name="colorPrimaryDark">#103361</item>
+        <item name="colorAccent">#164a8e</item>
+    </style>
+
+    <style name="DarkYellowTheme" parent="AppTheme">
+        <item name="colorPrimary">#d9a010</item>
+        <item name="colorPrimaryDark">#b9870a</item>
+        <item name="colorAccent">#d9a010</item>
+    </style>
+
+    <style name="DarkRedTheme" parent="AppTheme">
+        <item name="colorPrimary">#6f1313</item>
+        <item name="colorPrimaryDark">#400a0a</item>
+        <item name="colorAccent">#6f1313</item>
+    </style>
+</resources>
